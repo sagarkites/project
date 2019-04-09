@@ -4,8 +4,8 @@ pipeline {
    stage('Build') {
     steps {
      echo 'Running Build'
-     sudo chmod 777 test.py
-     sudo mv test.py sagar.py
+     chmod 777 test.py
+     mv test.py sagar.py
    }               
   }
  }
