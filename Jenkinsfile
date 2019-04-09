@@ -4,7 +4,8 @@ pipeline {
    stage('Build') {
     steps {
      echo 'Running Build'
-     python test.py
+     sudo chmod 777 test.py
+     ./test.py
    }               
   }
  }
