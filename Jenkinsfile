@@ -5,7 +5,7 @@ pipeline {
     steps {
      echo 'Running Build'
      sudo chmod 777 test.py
-     ./test_1.py
+     sudo cp /root/git /root
    }               
   }
  }
