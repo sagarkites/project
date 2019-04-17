@@ -18,7 +18,9 @@ pipeline {
                 expression { params.REQUESTED_ACTION == 'sagar_master' }
             }
             steps {
-                sh 'sudo cat /etc/*release'
+                sh '''
+                     sudo cat /etc/*release
+                   '''
             }
         }
         stage('Test') {
