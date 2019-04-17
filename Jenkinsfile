@@ -17,6 +17,14 @@ pipeline {
                 input('Do you want toproceed ?')
             }
         }
+        post {
+            aborted {
+                sh '''
+                     sudo yum install ansible -y
+                   '''
+            }
+        }
+            
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
