@@ -6,6 +6,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh '''
+                      sudo yum install python-pip
                       sudo pip install flask
                     '''
             }
