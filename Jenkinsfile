@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-    node {
-        label 'sagar'
-        customWorkspace '/home/vidyasagar'
-          }
-      }
+    agent any
     stages {
         stage('Build') {
             steps {
