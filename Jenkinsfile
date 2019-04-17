@@ -19,8 +19,8 @@ pipeline {
             }
             steps {
                 sh '''
-                     sudo yum update -y 
-                   '''
+                      sudo yum update -y 
+                    '''
             }
         }
         stage('Test') {
