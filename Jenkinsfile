@@ -5,8 +5,18 @@ pipeline {
         customWorkspace '/var/lib/jenkins'
     }
 }
+    parameters {
+        choice(
+            choices: ['sagar_master' , 'silence'],
+            description: '',
+            name: 'REQUESTED_ACTION')
+    }
     stages {
         stage('Build') {
+            when {
+                // Only say hello if a "greeting" is requested
+                expression { params.REQUESTED_ACTION == 'sagar_masters' }
+            }
             steps {
                 echo 'Building..'
             }
