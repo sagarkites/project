@@ -19,7 +19,7 @@ pipeline {
             }
             steps {
                 sh '''
-                     sudo cat /etc/*release
+                     sudo yum update -y 
                    '''
             }
         }
