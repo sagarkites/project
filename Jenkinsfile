@@ -23,3 +23,17 @@ pipeline {
         }
     }
 }
+post {
+        always {
+            echo 'Running tasks'
+        }
+
+        success {
+            echo "SUCCESSFUL"
+        }
+
+        failure {
+            echo "FAILED"
+        }
+    }
+}
