@@ -1,6 +1,10 @@
 pipeline {
-    agent any
-    
+    agent {
+    node {
+        label 'master'
+        customWorkspace '/var/lib/jenkins'
+    }
+} 
     stages {
         stage('Build') {
             steps {
@@ -16,15 +20,7 @@ pipeline {
             steps {
                 input('Do you want toproceed ?')
             }
-        }
-        post {
-            aborted {
-                sh '''
-                     sudo yum install ansible -y
-                   '''
-            }
-        }
-            
+        }    
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
