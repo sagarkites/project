@@ -15,10 +15,10 @@ pipeline {
         stage('Build') {
             when {
                 // Only say hello if a "greeting" is requested
-                expression { params.REQUESTED_ACTION == 'sagar_masters' }
+                expression { params.REQUESTED_ACTION == 'sagar_master' }
             }
             steps {
-                echo 'Building..'
+                sh 'sudo cat /etc/*release'
             }
         }
         stage('Test') {
