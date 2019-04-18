@@ -11,7 +11,7 @@ pipeline {
         stage('Build') {
             when {
                 // Only say hello if a "greeting" is requested
-                expression { params.REQUESTED_ACTION == 'jenkins_master' }
+                expression { params.REQUESTED_ACTION == 'slave' }
             }
             steps {
                 echo 'Building..'
