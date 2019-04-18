@@ -1,16 +1,7 @@
 pipeline {
-    agent {
-    node {
-        label 'sagar_master'
-        customWorkspace '/var/lib/jenkins'
-    }
-}
+    agent any
     stages {
         stage('Build') {
-            when {
-                // Only say hello if a "greeting" is requested
-                expression { params.REQUESTED_ACTION == 'sagar_master' }
-            }
             steps {
                 echo 'Done, Everything is okay'
             }
