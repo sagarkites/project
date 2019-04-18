@@ -1,21 +1,17 @@
 pipeline {
-    agent {
-    node {
-        label 'jenkins_master'
-        customWorkspace '/home/scott/slave'
-    }
-}
+    agent any
+
     stages {
         stage('Build') {
             steps {
-                sh 'sudo yum install ansible -y'
+                echo 'Building..'
             }
         }
         stage('Test') {
             steps {
-                input('Do you want toproceed ?')
+                echo 'Testing..'
             }
-        }    
+        }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
