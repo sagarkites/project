@@ -4,6 +4,10 @@ pipeline {
         label 'slave_1'
         customWorkspace '/home/scott/slave'
     }
+    node {
+        label 'slave_2'
+        customWorkspace '/home/scott/slave_2'
+    }    
 }
     stages {
         stage('Build') {
