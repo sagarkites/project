@@ -5,7 +5,7 @@ pipeline {
         customWorkspace '/home/scott/slave'
     }
 }
-     parameters {
+    parameters {
         choice(
             choices: ['slave' , 'silence'],
             description: '',
