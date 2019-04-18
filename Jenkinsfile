@@ -5,12 +5,6 @@ pipeline {
         customWorkspace '/var/lib/jenkins'
     }
 }
-    parameters {
-        choice(
-            choices: ['sagar_master' , 'silence'],
-            description: '',
-            name: 'REQUESTED_ACTION')
-    }
     stages {
         stage('Build') {
             when {
