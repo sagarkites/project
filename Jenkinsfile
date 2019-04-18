@@ -4,6 +4,10 @@ pipeline {
         label 'slave'
         customWorkspace '/home/scott/slave'
     }
+    node {
+        label 'jenkins_master'
+        customWorkspace '/var/lib/jenkins'
+    }    
 }
     parameters {
         choice(
@@ -15,7 +19,7 @@ pipeline {
         stage('Build') {
             when {
                 // Only say hello if a "greeting" is requested
-                expression { params.REQUESTED_ACTION == 'slave' }
+                expression { params.REQUESTED_ACTION == 'jenkins_master' }
             }
             steps {
                 sh 'sudo yum install ansible -y'
