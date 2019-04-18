@@ -18,10 +18,7 @@ pipeline {
                 expression { params.REQUESTED_ACTION == 'sagar_master' }
             }
             steps {
-                echo 'Done'
-                sh '''
-                     sudo yum update -y 
-                    '''
+                echo 'Done, Everything is okay'
             }
         }
         stage('Test') {
