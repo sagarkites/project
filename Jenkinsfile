@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'slave' }
+    agent { label 'slave && jenkins_master' }
     parameters {
         choice(
             choices: ['slave' , 'silence'],
