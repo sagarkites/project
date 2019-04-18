@@ -1,13 +1,12 @@
 pipeline {
-    agent none
-    
+    agent {
+    node {
+        label 'jenkins_master'
+        customWorkspace '/home/scott/slave'
+    }
+}
     stages {
         stage('Build') {
-            parallel {
-                stage("windows") {
-                    agent {
-                        label "jenkins_master"
-                    }    
             steps {
                 sh 'sudo yum install ansible -y'
             }
@@ -24,4 +23,4 @@ pipeline {
         }
     }
 }
-    }
+
