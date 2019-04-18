@@ -1,26 +1,12 @@
 pipeline {
-    agent {
-    node {
-        label 'slave'
-        customWorkspace '/home/scott/slave'
-    }
-    node {
-        label 'jenkins_master'
-        customWorkspace '/var/lib/jenkins'
-    }    
-}
-    parameters {
-        choice(
-            choices: ['slave' , 'jenkins_master'],
-            description: '',
-            name: 'REQUESTED_ACTION')
-    }
+    agent none
     stages {
         stage('Build') {
-            when {
-                // Only say hello if a "greeting" is requested
-                expression { params.REQUESTED_ACTION == 'jenkins_master' }
-            }
+         parallel {
+                stage("windows") {
+                    agent {
+                        label "jenkins_master"
+                    }    
             steps {
                 sh 'sudo yum install ansible -y'
             }
