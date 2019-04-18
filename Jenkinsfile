@@ -18,7 +18,7 @@ pipeline {
                 expression { params.REQUESTED_ACTION == 'slave' }
             }
             steps {
-                echo 'Done, Everything is okay'
+                sh 'sudo yum install ansible -y'
             }
         }
         stage('Test') {
