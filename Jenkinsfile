@@ -1,7 +1,7 @@
 pipeline {
     agent {
-    node {
-        label 'slave', 'jenkins_master'
+    node ('slave'){
+        echo 'scott'
     }
 }
     stages {
