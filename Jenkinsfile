@@ -7,7 +7,7 @@ pipeline {
 }
      parameters {
         choice(
-            choices: ['greeting' , 'silence'],
+            choices: ['slave' , 'silence'],
             description: '',
             name: 'REQUESTED_ACTION')
     }
@@ -15,7 +15,7 @@ pipeline {
         stage('Build') {
             when {
                 // Only say hello if a "greeting" is requested
-                expression { params.REQUESTED_ACTION == 'greetings' }
+                expression { params.REQUESTED_ACTION == 'slave' }
             }
             steps {
                 echo 'Done, Everything is okay'
