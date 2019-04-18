@@ -28,15 +28,8 @@ pipeline {
         }
     }
 }
-post {
-        always {
-            echo 'One way or another, I have finished'
-        }
-        success {
-            echo 'I succeeeded!'
-        }
-        failure {
-            echo 'I failed :('
+post { 
+        always { 
+            echo 'I will always say Hello again!'
         }
     }
-
