@@ -1,8 +1,9 @@
 pipeline {
     agent none
+    
     stages {
         stage('Build') {
-         parallel {
+            parallel {
                 stage("windows") {
                     agent {
                         label "jenkins_master"
