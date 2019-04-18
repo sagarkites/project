@@ -1,14 +1,5 @@
 pipeline {
-    agent {
-    node {
-        label 'slave_1'
-        customWorkspace '/home/scott/slave'
-    }
-    node {
-        label 'slave_2'
-        customWorkspace '/home/scott/slave_2'
-    }    
-}
+    agent { label 'slave_1' }
     stages {
         stage('Build') {
             steps {
