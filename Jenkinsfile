@@ -2,7 +2,7 @@ pipeline {
     agent { label 'slave && jenkins_master' }
     parameters {
         choice(
-            choices: ['slave' , 'silence'],
+            choices: ['slave' , 'jenkins_master'],
             description: '',
             name: 'REQUESTED_ACTION')
     }
@@ -11,7 +11,7 @@ pipeline {
         stage('Build') {
             when {
                 // Only say hello if a "greeting" is requested
-                expression { params.REQUESTED_ACTION == 'greeting' }
+                expression { params.REQUESTED_ACTION == 'jenkins_master' }
             }
             steps {
                 echo 'Building..'
