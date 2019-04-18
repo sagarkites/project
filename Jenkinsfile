@@ -11,7 +11,7 @@ pipeline {
 }
     parameters {
         choice(
-            choices: ['slave' , 'silence'],
+            choices: ['slave' , 'jenkins_master'],
             description: '',
             name: 'REQUESTED_ACTION')
     }
