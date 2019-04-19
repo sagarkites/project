@@ -1,14 +1,23 @@
 pipeline {
-    agent any
+    agent none
     stages {
-        stage('Build') {
+        stage('Node_1') {
+            agent { 
+                label 'slave_2'
+            }
             steps {
                 echo 'Building..'
+                sh 'sudo yum install epel-release -y'
             }
         }
-        stage('Test') {
+        stage('Node_2') {
+            agent { 
+                label 'slave_1'
+            }
             steps {
                 echo 'Testing..'
+                sh 'sudo yum install epel-release -y'
+                sh 'sudo yum install python-pip'
             }
         }
         stage('Deploy') {
