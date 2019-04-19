@@ -7,7 +7,7 @@ pipeline {
             }
             steps {
                 checkout scm
-                'sudo yum install ansible -y'
+                sudo 'sudo yum install ansible -y'
                  
             }
         }
@@ -22,6 +22,12 @@ pipeline {
                 always {
                     echo 'Whatever, i was doing something...!'
                 }
+               success {
+                 mail(from: "sagarscott@gmail.com", 
+                 to: "vidyasagarchintaluri@gmail.com", 
+                 subject: "That build failed!", 
+                 body: "Nothing to see here")
+               }
             }
         }
     }
