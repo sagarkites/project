@@ -18,10 +18,10 @@ pipeline {
                 sh 'sudo yum install ansible -y'
             }
         }
-        stage('Test on Linux') {
+        stage('Deploy') {
             agent any
             steps {
-                sh 'sudo yum install ansible -y'
+                echo 'Excess statement'
             }
             post {
                 always {
