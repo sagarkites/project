@@ -23,7 +23,7 @@ pipeline {
                     echo 'Whatever, i was doing something...!'
                 }
                 failure {
-                      echo 'Did something wroung :('
+                      echo 'soemthing went wroung..!'
                 }
             }
         }
