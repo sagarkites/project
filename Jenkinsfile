@@ -18,8 +18,12 @@ pipeline {
             steps {
                 sh 'sudo yum install ansible -y'
             }
-            
+            post {
+                always {
+                    junit 'Whatever, i was doing something...!'
                 }
             }
         }
+    }
+}
    
