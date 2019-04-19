@@ -21,7 +21,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh 'sudo yum install ansible -y'
-            }    
+            }
+        }
             post {
                 always {
                     echo 'Whatever, i was doing something...!'
@@ -35,5 +36,4 @@ pipeline {
             }
         }
     }
-  }
-}  
+    
