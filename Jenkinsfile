@@ -8,10 +8,6 @@ pipeline {
     }
     stages {
         stage('Build') {
-            when {
-                // Only say hello if a "greeting" is requested
-                expression { params.REQUESTED_ACTION == 'slave_1' }
-            }
             steps {
                 input ('Running os-level operations do you prcees?')
                 echo 'Building..'
