@@ -24,7 +24,7 @@ pipeline {
             steps {
                 echo 'Deploying....'
             }
-        }
+           }
             post {
                 always {
                     echo 'Whatever, i was doing something...!'
@@ -35,6 +35,6 @@ pipeline {
                 failure {
                    echo 'Something wnt wroung..!'
                 }
-    }
-  }
-}
+            }
+         }
+     }
