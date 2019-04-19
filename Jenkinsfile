@@ -2,7 +2,9 @@ pipeline {
     agent none
     stages {
         stage('Build') {
-            agent any
+            agent { 
+                label 'slave_2'
+            }
             steps {
                 checkout scm
                 sh 'sudo yum install ansible -y'
