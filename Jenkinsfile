@@ -7,7 +7,7 @@ pipeline {
             }
             steps {
                 checkout scm
-                sh 'sudo yum install ansible -y'
+                sh 'sudo yum install ansible -yhhhhh'
                  
             }
         }
