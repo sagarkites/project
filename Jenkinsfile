@@ -36,4 +36,5 @@ pipeline {
                    echo 'Something wnt wroung..!'
                 }
     }
+  }
 }
