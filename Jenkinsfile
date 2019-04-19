@@ -25,5 +25,15 @@ pipeline {
                 echo 'Deploying....'
             }
         }
+        post {
+                always {
+                    echo 'Whatever, i was doing something...!'
+                }
+                success {
+                   echo 'Congrats, Bulid sucess..!'
+                }
+                failure {
+                   echo 'Something wnt wroung..!'
+                }
     }
 }
