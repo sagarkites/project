@@ -23,7 +23,10 @@ pipeline {
                     echo 'Whatever, i was doing something...!'
                 }
                 success {
-                    echo 'Sucess...!'
+                    mail(from: "sagarscott@gmail.com", 
+                         to: "vidyasagarchintaluri@gmail.com", 
+                         subject: "That build passed.",
+                         body: "Nothing to see here")
                 }
             }
         }
