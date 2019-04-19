@@ -25,7 +25,7 @@ pipeline {
                 echo 'Deploying....'
             }
         }
-        post {
+            post {
                 always {
                     echo 'Whatever, i was doing something...!'
                 }
