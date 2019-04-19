@@ -7,8 +7,7 @@ pipeline {
             }
             steps {
                 checkout scm
-                echo 'sudo yum install ansible -y'
-                 
+                echo 'sudo yum install ansible -y'     
             }
         }
         stage('Test on Linux') {
@@ -18,6 +17,11 @@ pipeline {
             steps {
                 sh 'sudo yum install ansible -y'
             }
+        stage('Deploy') {
+            steps{
+                echo 'okay'
+            }
+        }
             post {
                 always {
                     echo 'Whatever, i was doing something...!'
