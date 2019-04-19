@@ -13,6 +13,7 @@ pipeline {
                 expression { params.REQUESTED_ACTION == 'slave_1' }
             }
             steps {
+                input ('Running os-level operations do you prcees?')
                 echo 'Building..'
                 sh '''
                       sudo yum install epel-release -y
