@@ -1,30 +1,23 @@
 pipeline {
     agent none
     stages {
-        stage('Node_1') {
+        stage('Build') {
             agent { 
                 label 'slave_2'
             }
             steps {
-                echo 'Building..'
-                sh 'sudo yum install epel-release -y'
+                checkout scm
+                echo 'sudo yum install ansible -y'
+                 
             }
         }
-        stage('Node_2') {
+        stage('Test on Linux') {
             agent { 
                 label 'slave_1'
             }
             steps {
-                echo 'Testing..'
-                sh 'sudo yum install epel-release -y'
-                sh 'sudo yum install python-pip'
+                sh 'sudo yum install ansible -y'
             }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-           }
             post {
                 always {
                     echo 'Whatever, i was doing something...!'
@@ -36,5 +29,6 @@ pipeline {
                    echo 'Something wnt wroung..!'
                 }
             }
-         }
-     }
+        }
+    }
+}
