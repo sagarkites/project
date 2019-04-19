@@ -1,33 +1,19 @@
 pipeline {
-    agent none
+    agent any
     stages {
         stage('Build') {
-            agent { 
-                label 'slave_2'
-            }
             steps {
-                checkout scm
-                echo 'sudo yum install ansible -y'
-                 
+                echo 'Building..'
             }
         }
-        stage('Test on Linux') {
-            agent { 
-                label 'slave_1'
-            }
+        stage('Test') {
             steps {
-                sh 'sudo yum install ansible -y'
+                echo 'Testing..'
             }
-            post {
-                always {
-                    echo 'Whatever, i was doing something...!'
-                }
-                success {
-                   echo 'Congrats, Bulid sucess..!'
-                }
-                failure {
-                   echo 'Something wnt wroung..!'
-                }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
         }
     }
