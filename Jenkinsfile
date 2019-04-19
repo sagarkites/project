@@ -18,6 +18,10 @@ pipeline {
             steps {
                 sh 'sudo yum install ansible -y'
             }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
             post {
                 always {
                     echo 'Whatever, i was doing something...!'
