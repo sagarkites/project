@@ -17,6 +17,7 @@ pipeline {
             steps {
                 sh 'sudo yum install ansible -y'
             }
+        }
         stage('Test on Linux') {
             agent any
             steps {
@@ -35,5 +36,5 @@ pipeline {
             }
         }
     }
-    }
+  }
 }
