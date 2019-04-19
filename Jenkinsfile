@@ -20,7 +20,7 @@ pipeline {
             }
             post {
                 always {
-                    junit 'Whatever, i was doing something...!'
+                    echo 'Whatever, i was doing something...!'
                 }
             }
         }
