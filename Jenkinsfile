@@ -1,11 +1,5 @@
 pipeline {
     agent { label 'slave_1' && 'slave_2' }
-     parameters {
-        choice(
-            choices: ['slave_1' , 'slave_2'],
-            description: '',
-            name: 'REQUESTED_ACTION')
-    }
     stages {
         stage('Build') {
             steps {
