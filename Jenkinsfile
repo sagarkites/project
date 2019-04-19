@@ -22,6 +22,9 @@ pipeline {
                 always {
                     echo 'Whatever, i was doing something...!'
                 }
+                failure {
+                      echo 'Did something wroung :('
+                }
             }
         }
     }
