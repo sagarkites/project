@@ -1,20 +1,7 @@
 pipeline {
-    agent none
+    agent { label 'slave_1' && 'slave_2' }
     stages {
         stage('Build') {
-            agent { label 'slave_1' && 'slave_2' }
-            parameters {
-        choice(
-            choices: ['slave_1' , 'slave_2'],
-            description: '',
-            name: 'REQUESTED_ACTION')
-    }
-
-            stage ('condition') {
-            when {
-                // Only say hello if a "greeting" is requested
-                expression { params.REQUESTED_ACTION == 'slave_1' }
-            }
             steps {
                 echo 'Building..'
                 sh '''
@@ -36,4 +23,4 @@ pipeline {
         }
     }
 }
-}
+
