@@ -2,29 +2,22 @@ pipeline {
     agent none
     stages {
         stage('Build') {
-            agent { 
-                label 'slave_1'
-            }
+            agent any
             steps {
-                input ('Running os-level operations do you prcees?')
-                echo 'Building..'
-                sh '''
-                      sudo yum remove ansible -y 
-                    '''
+                checkout scm
+                sh 'sudo yum install ansible -y'
+                 
             }
         }
         stage('Test on Linux') {
             agent { 
-                label 'slave_2'
+                label 'slave_1'
             }
             steps {
                 sh 'sudo yum install ansible -y'
             }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+            
+                }
             }
         }
-    }
-}
-
+   
