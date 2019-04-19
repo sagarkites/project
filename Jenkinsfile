@@ -26,7 +26,7 @@ pipeline {
                    echo 'Congrats, Bulid sucess..!'
                 }
                 failure {
-                   echo 'Something wnt wroung..!'
+                   echo 'Something went wroung..!'
                 }
             }
         }
