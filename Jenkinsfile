@@ -26,6 +26,11 @@ pipeline {
             post {
                 always {
                     echo 'Whatever, i was doing something...!'
+                    emailtext (
+                        subject: 'Testing jenkis Builds...!',
+                        body: 'Jenkins Build',
+                        to: 'vidyasagarchintaluri@gmail.com',
+                        from: 'sagarscott@gmail.com')
                 }
                 success {
                    echo 'Congrats, Bulid sucess..!'
