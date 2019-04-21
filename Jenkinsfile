@@ -7,17 +7,15 @@ pipeline {
             }
             steps {
                 checkout scm
-                echo 'sudo yum install ansible -y' 
-                echo 'SUCCESS'
+                echo 'sudo yum install ansible -y'     
             }
         }
         stage('Test on Linux') {
-            }
             agent { 
                 label 'slave_1'
             }
             steps {
-                sh 'sudo yum remove ansible -y'
+                sh 'sudo yum install ansible -y'
             }
         }
         stage('Deploy') {
@@ -25,9 +23,17 @@ pipeline {
             steps {
                 echo 'Excess statement'
             }
+            post {
+                always {
+                    echo 'Whatever, i was doing something...!'
+                }
+                success {
+                   echo 'Congrats, Bulid sucess..!'
+                }
+                failure {
+                   echo 'Something went wroung..!'
+                }
+            }
         }
-      }
     }
-  }
 }
-
