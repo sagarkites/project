@@ -8,6 +8,7 @@ pipeline {
             steps {
                 checkout scm
                 echo 'sudo yum install ansible -y' 
+                echo 'SUCCESS'
             }
         }
         stage('Test on Linux') {
