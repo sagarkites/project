@@ -29,7 +29,7 @@ pipeline {
                      emailext (
                        subject: "Jenkins Status'",
                        body: "Sucess",
-                       to: "vidyasagar.chintaluri@gmail.com",
+                       to: "vidyasagarchintaluri@gmail.com",
                        from: "sagarscott@gmail.com" ) 
                 }
                 success {
