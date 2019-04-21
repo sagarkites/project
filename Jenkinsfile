@@ -5,11 +5,8 @@ pipeline {
     }
     stages {
         stage('Example') {
-            environment { 
-                DEBUG_FLAGS = '-g'
-            }
             steps {
-                sh 'printenv[HOME]'
+                sh 'printenv'
             }
         }
     }
