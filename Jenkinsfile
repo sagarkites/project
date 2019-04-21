@@ -11,7 +11,7 @@ pipeline {
         stage ('Speak') {
             when {
                 // Only say hello if a "greeting" is requested
-                expression { params.REQUESTED_ACTION == 'greeting' }
+                expression { params.REQUESTED_ACTION == 'nbnabanbdbanmbna' }
             }
             steps {
                 echo "Hello, bitwiseman!"
