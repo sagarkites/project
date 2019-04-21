@@ -3,7 +3,7 @@ pipeline {
      parameters {
         choice(
             name: 'choice'
-            choices: ['slave_1' , 'slave_2'],
+            choices: 'slave_1\nslave_2',
             description: 'Parameters')
     }
     stages {
@@ -13,7 +13,7 @@ pipeline {
             }
             steps {
                 script {
-                    if ("${params.Invoke_Parameters}" == "slave_1") {
+                    if ("${params.choice}" == "slave_1") {
                         echo 'Building..'
                         sh '''
                             sudo yum install epel-release -y
