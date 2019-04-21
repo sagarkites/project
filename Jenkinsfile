@@ -1,38 +1,31 @@
 pipeline {
-    agent none
+    agent { label 'slave_1' && 'slave_2' }
+     parameters {
+        choice(
+            choices: ['slave_1' , 'slave_2'],
+            description: '',
+            name: 'REQUESTED_ACTION')
+    }
     stages {
         stage('Build') {
-            agent { 
-                label 'slave_2'
-            }
             steps {
-                checkout scm
-                echo 'sudo yum install ansible -y'     
+                echo 'Building..'
+                sh '''
+                      sudo yum install epel-release -y
+                      sudo yum install python-pip -y 
+                      sudo pip install flask
+                      sudo yum remove ansible -y 
+                    '''
             }
         }
-        stage('Test on Linux') {
-            agent { 
-                label 'slave_1'
-            }
+        stage('Test') {
             steps {
-                sh 'sudo yum install ansible -y'
+                echo 'Testing..'
             }
         }
         stage('Deploy') {
-            agent any
             steps {
-                echo 'Excess statement'
-            }
-            post {
-                always {
-                    echo 'Whatever, i was doing something...!'
-                }
-                success {
-                   echo 'Congrats, Bulid sucess..!'
-                }
-                failure {
-                   echo 'Something went wroung..!'
-                }
+                echo 'Deploying....'
             }
         }
     }
