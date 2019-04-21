@@ -25,15 +25,8 @@ pipeline {
             steps {
                 echo 'Excess statement'
             }
-            stage('condition') {
-                when {
-                   expression {
-                     currentBuild.result == currentBuild.result == 'SUCCESS' 
-              }
-            steps {
-                echo 'shhhhhh......!'
-                    }      
-            }
+                
+           }
         }
     }
 }
