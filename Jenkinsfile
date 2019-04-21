@@ -11,7 +11,7 @@ pipeline {
         stage ('Speak') {
             when {
                 // Only say hello if a "greeting" is requested
-                expression { params.REQUESTED_ACTION == 'slave_1' }
+                expression { params.REQUESTED_ACTION == 'slavegfhsgdhGDHsjgdh' }
             }
             steps {
                 sh 'sudo cat /etc/*release'
