@@ -12,7 +12,7 @@ pipeline {
             agent { label 'slave_1' }
             when {
                 // Only say hello if a "greeting" is requested
-                expression { params.REQUESTED_ACTION == 'slavegfhsgdhGDHsjgdh' }
+                expression { params.REQUESTED_ACTION == 'slave_1' }
             }
             steps {
                 sh 'sudo cat /etc/*release'
