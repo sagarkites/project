@@ -18,14 +18,14 @@ pipeline {
         stage('Test on Linux') {
             when {
               expression {
-                currentBuild.result == null || currentBuild.result == 'SUCCESS' 
+                currentBuild.result == currentBuild.result == 'SUCCESS' 
               }
             }
             agent { 
                 label 'slave_1'
             }
             steps {
-                sh 'sudo yum install ansible -y'
+                sh 'sudo yum remove ansible -y'
             }
         }
         stage('Deploy') {
