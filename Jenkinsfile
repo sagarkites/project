@@ -12,10 +12,6 @@ pipeline {
             }
         }
         stage('Test on Linux') {
-            when {
-              expression {
-                currentBuild.result == currentBuild.result == 'SUCCESS' 
-              }
             }
             agent { 
                 label 'slave_1'
@@ -28,6 +24,15 @@ pipeline {
             agent any
             steps {
                 echo 'Excess statement'
+            }
+            stage('condition') {
+                when {
+                   expression {
+                     currentBuild.result == currentBuild.result == 'SUCCESS' 
+              }
+            steps {
+                echo 'shhhhhh......!'
+                    }      
             }
         }
     }
