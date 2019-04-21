@@ -1,36 +1,20 @@
 pipeline {
-    agent none
-      parameters {
-            choice(name: 'choice', choices:"slave_1\nslave_2", description: "" )
+    agent any
+    parameters {
+        choice(
+            choices: ['greeting' , 'silence'],
+            description: '',
+            name: 'REQUESTED_ACTION')
     }
+
     stages {
-        stage('Build') {
-            agent {
-                label 'slave_1'
+        stage ('Speak') {
+            when {
+                // Only say hello if a "greeting" is requested
+                expression { params.REQUESTED_ACTION == 'greeting' }
             }
             steps {
-                script {
-                    if ("${params.choice}" == "dvasvfsafvafv") {
-                        echo 'Building..'
-                        sh '''
-                            sudo yum install epel-release -y
-                            sudo yum install python-pip -y 
-                            sudo pip install flask
-                            sudo yum remove ansible -y 
-                           '''
-                    }
-                }
-                
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                echo "Hello, bitwiseman!"
             }
         }
     }
