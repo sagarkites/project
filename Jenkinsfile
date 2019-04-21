@@ -8,8 +8,8 @@ pipeline {
     }
 
     stages {
-        agent { label 'slave_1' }
         stage ('Speak') {
+            agent { label 'slave_1' }
             when {
                 // Only say hello if a "greeting" is requested
                 expression { params.REQUESTED_ACTION == 'slavegfhsgdhGDHsjgdh' }
