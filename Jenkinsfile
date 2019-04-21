@@ -25,9 +25,9 @@ pipeline {
             steps {
                 echo 'Excess statement'
             }
-                
-           }
         }
+      }
     }
+  }
 }
 
