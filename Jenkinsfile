@@ -26,11 +26,6 @@ pipeline {
             post {
                 always {
                     echo 'Whatever, i was doing something...!'
-                     emailext (
-                       subject: "Jenkins Status'",
-                       body: "Sucess",
-                       to: "vidyasagarchintaluri@gmail.com",
-                       from: "sagarscott@gmail.com" ) 
                 }
                 success {
                    echo 'Congrats, Bulid sucess..!'
