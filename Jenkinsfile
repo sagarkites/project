@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'slave_1' }
+    agent none
     parameters {
         choice(
             choices: ['slave_1' , 'slave_2'],
@@ -8,6 +8,7 @@ pipeline {
     }
 
     stages {
+        agent { label 'slave_1' }
         stage ('Speak') {
             when {
                 // Only say hello if a "greeting" is requested
