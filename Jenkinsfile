@@ -24,9 +24,6 @@ pipeline {
             }
         }
         stage('Test') {
-            agent {
-                label 'slave_2'
-            }
             steps {
                 echo 'Testing..'
             }
