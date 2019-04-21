@@ -11,6 +11,11 @@ pipeline {
             }
         }
         stage('Test on Linux') {
+            when {
+              expression {
+                currentBuild.result == null || currentBuild.result == 'SUCCESS' 
+              }
+            }
             agent { 
                 label 'slave_1'
             }
