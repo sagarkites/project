@@ -1,10 +1,7 @@
 pipeline {
     agent none
-     parameters {
-        choice(
-            name: 'choice'
-            choices: 'slave_1\nslave_2',
-            description: 'Parameters')
+      parameters {
+            choice(name: 'choice', choices:"slave_1\nslave_2", description: "" )
     }
     stages {
         stage('Build') {
