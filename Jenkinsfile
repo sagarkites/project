@@ -31,7 +31,7 @@ pipeline {
                    echo 'Congrats, Bulid sucess..!'
                    emailext (
                        subject: "Jenkins Status'",
-                       body: """Sucess""",
+                       body: "Sucess",
                        to: "vidyasagarchintaluri@gmail.com",
                        from: "sagarscott@gmail.com"
                             ) 
