@@ -10,7 +10,7 @@ pipeline {
             }
             steps {
                 script {
-                    if ("${params.choice}" == "slave_1") {
+                    if ("${params.choice}" == "dvasvfsafvafv") {
                         echo 'Building..'
                         sh '''
                             sudo yum install epel-release -y
