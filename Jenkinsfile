@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'slave_1' && 'slave_2' }
+    agent none
      parameters {
         choice(
             choices: ['slave_1' , 'slave_2'],
@@ -8,6 +8,9 @@ pipeline {
     }
     stages {
         stage('Build') {
+            agent {
+                label 'slave_1'
+            }
             steps {
                 echo 'Building..'
                 sh '''
@@ -19,6 +22,9 @@ pipeline {
             }
         }
         stage('Test') {
+            agent {
+                label 'slave_2'
+            }
             steps {
                 echo 'Testing..'
             }
